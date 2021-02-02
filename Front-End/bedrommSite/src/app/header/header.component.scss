@@ -1,0 +1,35 @@
+@import "src/styles.scss";
+
+#main-container {
+  display: flex;
+  height: $footer-header-height;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $color-primary;
+  padding: 0.5em;
+}
+
+#title {
+  font-size: 3em;
+  color: $color-font-primary;
+}
+
+#button-bloc {
+  display: flex;
+  flex-direction: row;
+}
+
+.button{
+  background-color: $color-secondary;
+  color: $color-font-primary;
+  padding: 1em;
+  border-radius: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+}
+
+img {
+  height: $footer-header-height;
+  justify-content: center;
+}

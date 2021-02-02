@@ -5,7 +5,6 @@ import {HttpClient} from '@angular/common/http';
   providedIn: 'root'
 })
 export class AppointmentService {
-
   putReservationURL : 'localhost/register';
   getDateURL: 'localhost/:';
 
@@ -32,6 +31,7 @@ export class AppointmentService {
     }
     else {
       this.reserved_date_list = this.http.get(this.getDateURL + this.current_date_selected);
+      return this.reserved_date_list;
     }
   }
 }

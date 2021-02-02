@@ -120,7 +120,7 @@ export class AppointmentComponent implements OnInit {
       for (let reserved of this.reserved_date_list){
         for (let date of this.date_list){
           if (date == reserved) {
-            
+
           }
         }
       }
