@@ -15,7 +15,7 @@ export class AppointmentService {
 
   sendReservation(reservation, date_parsed){
     console.log(reservation.name, reservation.surname, reservation.phone, reservation.email, date_parsed);
-    return this.http.put(this.putReservationURL ,{
+    return this.http.post('/api/v1/register' ,{
       "nom": reservation.name,
       "prenom":reservation.prenom,
       "telephone": reservation.phone,
@@ -30,7 +30,7 @@ export class AppointmentService {
       return null
     }
     else {
-      this.reserved_date_list = this.http.get(this.getDateURL + this.current_date_selected);
+      this.reserved_date_list = this.http.get('api/v1/rdv/' + this.current_date_selected);
       return this.reserved_date_list;
     }
   }
