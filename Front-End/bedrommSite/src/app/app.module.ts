@@ -17,6 +17,8 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
 import { RgpdComponent } from './rgpd/rgpd.component';
+import { ContactComponent } from './contact/contact.component';
+import {HttpClientModule} from "@angular/common/http";
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -24,6 +26,7 @@ const routes: Routes = [
   {path: 'accueil', component: AccueilComponent},
   {path: 'appointment', component: AppointmentComponent},
   {path: 'rgpd', component: RgpdComponent},
+  {path: 'contact', component: ContactComponent},
 ];
 
 @NgModule({
@@ -34,6 +37,7 @@ const routes: Routes = [
     AccueilComponent,
     AppointmentComponent,
     RgpdComponent,
+    ContactComponent,
   ],
   imports: [
     ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
@@ -50,6 +54,7 @@ const routes: Routes = [
     MatListModule,
     MatIconModule,
     FormsModule,
+    HttpClientModule,
   ],
   providers: [
     MatDatepickerModule,
