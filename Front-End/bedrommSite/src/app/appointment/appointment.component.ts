@@ -39,22 +39,16 @@ export class AppointmentComponent implements OnInit {
   phone: any;
   email: any;
 
-  all_fill = true;
   date_selected = false;
   reserved_date_list = [];
+  requested_date_parsed = null;
+  reservation = null
+  selected_date: any;
   date_list = [
     {
     hour: "8:30",
-    empty: false,
+    empty: true,
   },
-    {
-      hour: "9:00",
-      empty: true,
-    },
-    {
-      hour: "9:30",
-      empty: true,
-    },
     {
       hour: "9:00",
       empty: true,
@@ -124,6 +118,7 @@ export class AppointmentComponent implements OnInit {
   select_date(type: string, event: MatDatepickerInputEvent<Date>) {
     console.log(event.value);
     this.date_selected = true;
+    this.selected_date = event.value;
     this.reserved_date_list = this.appointmentService.getDateList();
   }
 
@@ -132,16 +127,38 @@ export class AppointmentComponent implements OnInit {
    * @param date
    */
   bookHour(date) {
-    console.log(date);
-    console.log(this.name);
-    console.log(this.surname);
-    console.log(this.phone);
-    console.log(this.email);
+
     if (this.name == null|| this.surname == null || this.email == null || this.phone == null) {
       console.log("veuillez remplir tout les champs");
     }
     else {
+      let tmpDate = date.hour.split(':');
+      let hour = tmpDate[0].toString();
+      let minutes = tmpDate[1].toString();
+      let year = this.selected_date.getFullYear().toString();
+      let month = (this.selected_date.getMonth() + 1).toString();
+      let day = this.selected_date.getDate().toString();
+      this.reservation = {
+        name: this.name,
+        surname: this.surname,
+        phone: '+32' + this.phone,
+        email: this.email,
+        date: day + '/' + month + '/' + year + " " + hour + ":" + minutes,
+      }
+      this.requested_date_parsed = year +'-'+  month +'-'+ day +'T'+ hour +':'+ minutes + ':00.000';
+    }
+  }
 
+  /**
+   * send réservation to the DB
+   * @param date
+   */
+  sendReservation(){
+    if (this.name == null|| this.surname == null || this.email == null || this.phone == null) {
+      console.log("veuillez remplir tout les champs");
+    }
+    else {
+      this.appointmentService.sendReservation(this.reservation, this.requested_date_parsed);
     }
   }
 }
