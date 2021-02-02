@@ -13,11 +13,12 @@ body {
 /**
 Color
  */
-$color-primary: rgb(118,197,164);
-$color-secondary: rgb(118, 181, 197);
+$color-primary: rgb(231, 231, 231);
+$color-secondary: rgb(131, 131, 131);
 $color-gradient: linear-gradient(180deg, rgba(118,197,164,1) 20%, rgba(48,57,197,1) 80%);
+$color-accent: rgb(84, 175, 198);
 
-$color-font-primary: white;
+$color-font-primary: #292929;
 $color-font-secondary: lightgray;
 
 /**

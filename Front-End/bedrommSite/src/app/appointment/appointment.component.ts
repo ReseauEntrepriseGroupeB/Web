@@ -25,11 +25,12 @@ export class AppointmentComponent implements OnInit {
   ]);
   matcher = new MyErrorStateMatcher();
 
+  date_selected = false;
   reserved_date_list = [];
   date_list = [
     {
     hour: "8:30",
-    empty: true,
+    empty: false,
   },
     {
       hour: "9:00",
@@ -100,9 +101,22 @@ export class AppointmentComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  /**
+   * récupération de la liste des heures disponibles sur base de la date choisie
+   * @param type
+   * @param event
+   */
   select_date(type: string, event: MatDatepickerInputEvent<Date>) {
     console.log(event.value);
+    this.date_selected = true;
     this.reserved_date_list = this.appointmentService.getDateList();
   }
 
+  /**
+   * réservation de l'heure souhiatée
+   * @param date
+   */
+  bookHour(date) {
+    console.log(date);
+  }
 }
