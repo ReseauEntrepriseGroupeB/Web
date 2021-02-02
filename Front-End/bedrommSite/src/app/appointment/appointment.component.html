@@ -55,7 +55,7 @@
       <mat-list *ngIf="date_selected">
         <mat-list-item *ngFor="let date of date_list">
           <div class="mat-list-item-bloc" (click)="bookHour(date)">
-            <div class="date-list-item">Heure : {{date.hour}}</div>
+            <div class="date-list-item">{{date.hour}} heure</div>
             <div class="date-list-item" class="date_empty" *ngIf="date.empty">Disponibilite <mat-icon>done_outline</mat-icon></div>
             <div class="date-list-item" class="date_full" *ngIf="!date.empty">Réservé <mat-icon>highlight_off</mat-icon></div>
           </div>

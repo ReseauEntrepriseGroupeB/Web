@@ -46,55 +46,47 @@ export class AppointmentComponent implements OnInit {
   selected_date: any;
   date_list = [
     {
-    hour: "8:30",
+    hour: 8,
     empty: true,
   },
     {
-      hour: "9:00",
+      hour: 9,
       empty: true,
     },
     {
-      hour: "9:30",
+      hour: 10,
       empty: true,
     },
     {
-      hour: "10:00",
+      hour: 11,
       empty: true,
     },
     {
-      hour: "10:30",
+      hour: 12,
       empty: true,
     },
     {
-      hour: "11:00",
+      hour: 13,
       empty: true,
     },
     {
-      hour: "11:30",
+      hour: 14,
       empty: true,
     },
     {
-      hour: "12:00",
+      hour: 15,
       empty: true,
     },
     {
-      hour: "13:30",
+      hour: 16,
       empty: true,
     },
     {
-      hour: "14:00",
+      hour: 17,
       empty: true,
     },
     {
-      hour: "14:30",
-      empty: true,
-    },
-    {
-      hour: "15:00",
-      empty: true,
-    },
-    {
-      hour: "15:30",
+      hour: 18,
       empty: true,
     },
   ];
@@ -120,6 +112,13 @@ export class AppointmentComponent implements OnInit {
     this.date_selected = true;
     this.selected_date = event.value;
     this.reserved_date_list = this.appointmentService.getDateList();
+    if (this.reserved_date_list != null){
+      for (let reserved of this.reserved_date_list){
+        for (let date of this.date_list){
+          
+        }
+      }
+    }
   }
 
   /**
@@ -132,9 +131,7 @@ export class AppointmentComponent implements OnInit {
       console.log("veuillez remplir tout les champs");
     }
     else {
-      let tmpDate = date.hour.split(':');
-      let hour = tmpDate[0].toString();
-      let minutes = tmpDate[1].toString();
+      let hour = date.hour;
       let year = this.selected_date.getFullYear().toString();
       let month = (this.selected_date.getMonth() + 1).toString();
       let day = this.selected_date.getDate().toString();
@@ -143,9 +140,9 @@ export class AppointmentComponent implements OnInit {
         surname: this.surname,
         phone: '+32' + this.phone,
         email: this.email,
-        date: day + '/' + month + '/' + year + " " + hour + ":" + minutes,
+        date: day + '/' + month + '/' + year + " " + hour + ":" + '00',
       }
-      this.requested_date_parsed = year +'-'+  month +'-'+ day +'T'+ hour +':'+ minutes + ':00.000';
+      this.requested_date_parsed = year +'-'+  month +'-'+ day +'T'+ hour +':' + '00:00.000';
     }
   }
 
