@@ -1,4 +1,4 @@
-const env = Object.freeze({ ...process.env })
+const env = require("./environment");
 
 module.exports = {
     dev: {
