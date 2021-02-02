@@ -23,8 +23,23 @@ export class AppointmentComponent implements OnInit {
     Validators.required,
     Validators.email,
   ]);
+  PhoneFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  NameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
+  SurnameFormControl = new FormControl('', [
+    Validators.required,
+  ]);
   matcher = new MyErrorStateMatcher();
 
+  name: any;
+  surname: any;
+  phone: any;
+  email: any;
+
+  all_fill = true;
   date_selected = false;
   reserved_date_list = [];
   date_list = [
@@ -118,5 +133,15 @@ export class AppointmentComponent implements OnInit {
    */
   bookHour(date) {
     console.log(date);
+    console.log(this.name);
+    console.log(this.surname);
+    console.log(this.phone);
+    console.log(this.email);
+    if (this.name == null|| this.surname == null || this.email == null || this.phone == null) {
+      console.log("veuillez remplir tout les champs");
+    }
+    else {
+
+    }
   }
 }

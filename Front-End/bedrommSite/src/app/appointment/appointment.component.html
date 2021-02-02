@@ -12,24 +12,33 @@
 
     <mat-form-field class="form-field" appearance="fill">
       <mat-label>Nom</mat-label>
-      <input matInput placeholder="" required>
+      <input matInput placeholder="" required [(ngModel)]="name" [formControl]="NameFormControl">
+      <mat-error *ngIf="NameFormControl.hasError('required')">
+        Veuillez renseigner votre email
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field class="form-field" appearance="fill">
       <mat-label>Prénom</mat-label>
-      <input matInput placeholder="" required>
+      <input matInput placeholder="" required [(ngModel)]="surname" [formControl]="SurnameFormControl">
+      <mat-error *ngIf="SurnameFormControl.hasError('required')">
+        Veuillez renseigner votre email
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field id="telForm" class="form-field" appearance="fill">
       <mat-label>Telephone</mat-label>
       <span matPrefix>+32 &nbsp;</span>
-      <input type="tel" matInput placeholder="412-34-56-78">
+      <input type="tel" matInput placeholder="412-34-56-78" [(ngModel)]="phone" required [formControl]="PhoneFormControl">
+      <mat-error *ngIf="PhoneFormControl.hasError('required')">
+        Veuillez renseigner votre email
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field id="emailForm" class="form-field" appearance="fill">
       <mat-label>Email</mat-label>
       <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
-             placeholder="Ex. pat@example.com" required>
+             placeholder="Ex. pat@example.com" required [(ngModel)]="email">
       <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
         Email non valide
       </mat-error>
@@ -51,6 +60,10 @@
         </div>
       </mat-list-item>
     </mat-list>
+    <div id="placeHolder-reservation" *ngIf="!date_selected">
+      <p>Veuillez choisir la date de votre rendez-vous</p>
+      <p>Afin de pouvoir choisir l'heure par la suite</p>
+    </div>
   </div>
 
   </div>
