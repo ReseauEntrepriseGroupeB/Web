@@ -1,0 +1,14 @@
+@import "src/styles";
+
+#main-container {
+  padding: $footer-header-height;
+}
+
+#datePicker {
+}
+
+.example-events {
+  height: 200px;
+  border: 1px solid #555;
+  overflow: auto;
+}

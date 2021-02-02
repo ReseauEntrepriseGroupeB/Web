@@ -9,6 +9,10 @@ import { FooterComponent } from './footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AccueilComponent } from './accueil/accueil.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatNativeDateModule} from "@angular/material/core";
+import {MatInputModule} from "@angular/material/input";
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -30,9 +34,15 @@ const routes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatInputModule,
+    MatFormFieldModule,
   ],
-  providers: [],
+  providers: [
+    MatDatepickerModule,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
