@@ -1,10 +1,47 @@
 <div id="main-container">
-  <div> Prendre un rendez-vous </div>
+  <div id="title"> Prendre un rendez-vous </div>
+  <div id="infoContainer">
+  <div id="infoForm">
 
-  <mat-form-field id="datePicker" appearance="fill">
-    <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+    <mat-form-field id="datePickerForm" class="form-field" appearance="fill">
+      <mat-label>Date du rendez-vous</mat-label>
+      <input matInput [matDatepickerFilter]="dateFilter" [matDatepicker]="picker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="" required>
+    </mat-form-field>
+
+    <mat-form-field class="form-field" appearance="fill">
+      <mat-label>Prénom</mat-label>
+      <input matInput placeholder="" required>
+    </mat-form-field>
+
+    <mat-form-field id="telForm" class="form-field" appearance="fill">
+      <mat-label>Telephone</mat-label>
+      <span matPrefix>+32 &nbsp;</span>
+      <input type="tel" matInput placeholder="412-34-56-78">
+    </mat-form-field>
+
+    <mat-form-field id="emailForm" class="form-field" appearance="fill">
+      <mat-label>Email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+             placeholder="Ex. pat@example.com" required>
+      <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+        Email non valide
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Veuillez renseigner votre email
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <div id="pickReservation">
+  </div>
+
+  </div>
+
 </div>

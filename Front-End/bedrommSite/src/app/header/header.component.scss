@@ -12,6 +12,7 @@
 
 #title {
   font-size: 3em;
+  color: $color-font-primary;
 }
 
 #button-bloc {
@@ -21,6 +22,7 @@
 
 .button{
   background-color: $color-secondary;
+  color: $color-font-primary;
   padding: 1em;
   border-radius: 0.5em;
   margin-left: 0.5em;
