@@ -1,10 +1,9 @@
-version: '3.7'
+version: "3.7"
 
 services:
-
   bedroom-server:
     container_name: bedroom-server
-    image: 20152011/bedroom
+    image: patrick450/bedroom
     restart: unless-stopped
     ports:
       - "3000:3000"
