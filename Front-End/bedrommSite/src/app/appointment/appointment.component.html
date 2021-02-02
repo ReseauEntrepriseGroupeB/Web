@@ -15,7 +15,7 @@
         <mat-label>Nom</mat-label>
         <input matInput placeholder="" required [(ngModel)]="name" [formControl]="NameFormControl">
         <mat-error *ngIf="NameFormControl.hasError('required')">
-          Veuillez renseigner votre email
+          Veuillez renseigner votre nom
         </mat-error>
       </mat-form-field>
 
@@ -23,7 +23,7 @@
         <mat-label>Prénom</mat-label>
         <input matInput placeholder="" required [(ngModel)]="surname" [formControl]="SurnameFormControl">
         <mat-error *ngIf="SurnameFormControl.hasError('required')">
-          Veuillez renseigner votre email
+          Veuillez renseigner votre prénom
         </mat-error>
       </mat-form-field>
 
@@ -32,7 +32,7 @@
         <span matPrefix>+32 &nbsp;</span>
         <input type="tel" matInput placeholder="412-34-56-78" [(ngModel)]="phone" required [formControl]="PhoneFormControl">
         <mat-error *ngIf="PhoneFormControl.hasError('required')">
-          Veuillez renseigner votre email
+          Veuillez renseigner votre numéro de téléphone
         </mat-error>
       </mat-form-field>
 
