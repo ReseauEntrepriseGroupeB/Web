@@ -20,6 +20,7 @@
   "homepage": "https://github.com/ReseauEntrepriseGroupeB/Web#readme",
   "dependencies": {
     "@types/express": "^4.17.8",
+    "@types/sequelize": "^4.28.9",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "pg": "^8.5.1",

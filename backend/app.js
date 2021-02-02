@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const dotenv = require("dotenv")
+const dotenv = require("dotenv");
 
 const express = require("express");
 const app = express();
@@ -24,7 +24,7 @@ let sequelize = new Sequelize("bedroom", "postgres", "postgre",{
 sequelize.authenticate()
     .then(() => {
     if (process.env.NODE_ENV === 'dev') {
-            console.log("Database connected successfully to ${env.POSTGRES_DB} database")
+            console.log(`Database connected successfully to ${process.env.POSTGRES_DB} database`)
         }
     })
     .catch(error => console.error("Unable to connect to database" , error));
