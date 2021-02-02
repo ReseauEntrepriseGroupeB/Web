@@ -1,26 +1,33 @@
-import express from 'express'
-import bodyParser from 'body-parser'
-import cors from 'cors'
-import passport from 'passport'
-import routes from './src/routes'
-import helmet from 'helmet'
-import env from './src/config/environment'
-import express_server from './src/index'
+const Sequelize = require("sequelize");
 
-const addRequestId = require('express-request-id')()
+const dotenv = require("dotenv")
 
-const server = new express_server(express)
+const express = require("express");
+const app = express();
+dotenv.config();
 
-server
-  .initDatabase()
-  .addMiddleware(cors())
-  .addMiddleware(bodyParser.json())
-  .addMiddleware(addRequestId)
-  .helmetSecurity(helmet)
-  .passportConfig(passport)
-  .serveStaticFiles()
-  .addRouting(routes)
-  .errorHandler()
-  .listenOn(env.PORT ?? 8001)
+app.get('/', function (req, res) {
+    res.send("hello world")
+});
 
-export default server.run()
+let sequelize = new Sequelize("bedroom", "postgres", "postgre",{
+    host: "localhost",
+    dialect: "postgres",
+
+    pool:{
+        max: 5,
+        min: 0,
+        idle: 10000
+    },
+});
+
+sequelize.authenticate()
+    .then(() => {
+    if (process.env.NODE_ENV === 'dev') {
+            console.log("Database connected successfully to ${env.POSTGRES_DB} database")
+        }
+    })
+    .catch(error => console.error("Unable to connect to database" , error));
+
+app.listen(3000);
+
