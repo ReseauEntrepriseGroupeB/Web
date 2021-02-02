@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
+import {AppointmentService} from "../services/appointmentService/appointment.service";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -23,15 +24,18 @@ export class AppointmentComponent implements OnInit {
   ]);
   matcher = new MyErrorStateMatcher();
 
+  date_list = [];
+
   dateFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
     // pas le mardi et dimanche
     return day !== 1 && day !== 6;
   }
 
-  constructor() { }
+  constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
+    this.date_list = this.appointmentService.getDateList(Date);
   }
 
 }

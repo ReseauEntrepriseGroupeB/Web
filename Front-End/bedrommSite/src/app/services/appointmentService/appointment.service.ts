@@ -6,4 +6,8 @@ import { Injectable } from '@angular/core';
 export class AppointmentService {
 
   constructor() { }
+
+  getDateList(Date){
+    return this.dateList;
+  }
 }

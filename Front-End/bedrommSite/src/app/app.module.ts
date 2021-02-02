@@ -14,6 +14,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatNativeDateModule} from "@angular/material/core";
 import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
+import {MatListModule} from "@angular/material/list";
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -41,6 +42,7 @@ const routes: Routes = [
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+    MatListModule,
   ],
   providers: [
     MatDatepickerModule,
