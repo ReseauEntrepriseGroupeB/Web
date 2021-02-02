@@ -111,11 +111,17 @@ export class AppointmentComponent implements OnInit {
     console.log(event.value);
     this.date_selected = true;
     this.selected_date = event.value;
-    this.reserved_date_list = this.appointmentService.getDateList();
+    let year = this.selected_date.getFullYear().toString();
+    let month = (this.selected_date.getMonth() + 1).toString();
+    let day = this.selected_date.getDate().toString();
+    let daterequested =  year +'-'+ month +'-' + day
+    this.reserved_date_list = this.appointmentService.getDateList(daterequested);
     if (this.reserved_date_list != null){
       for (let reserved of this.reserved_date_list){
         for (let date of this.date_list){
-          
+          if (date == reserved) {
+
+          }
         }
       }
     }
