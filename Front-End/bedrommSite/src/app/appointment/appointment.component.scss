@@ -10,14 +10,16 @@
 
 #title {
   color: $color-font-primary;
-  font-size: 4em;
+  font-size: 3em;
   justify-content: center;
-  margin-bottom: 3em;
+  margin-bottom: 1em;
 }
 
 #infoContainer {
   display: flex;
   flex-direction: row;
+  justify-content: center;
+  width: 100%;
 }
 
 #infoForm {
