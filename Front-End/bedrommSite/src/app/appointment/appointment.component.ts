@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 import {AppointmentService} from "../services/appointmentService/appointment.service";
+import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -24,7 +25,69 @@ export class AppointmentComponent implements OnInit {
   ]);
   matcher = new MyErrorStateMatcher();
 
-  date_list = [];
+  reserved_date_list = [];
+  date_list = [
+    {
+    hour: "8:30",
+    empty: true,
+  },
+    {
+      hour: "9:00",
+      empty: true,
+    },
+    {
+      hour: "9:30",
+      empty: true,
+    },
+    {
+      hour: "9:00",
+      empty: true,
+    },
+    {
+      hour: "9:30",
+      empty: true,
+    },
+    {
+      hour: "10:00",
+      empty: true,
+    },
+    {
+      hour: "10:30",
+      empty: true,
+    },
+    {
+      hour: "11:00",
+      empty: true,
+    },
+    {
+      hour: "11:30",
+      empty: true,
+    },
+    {
+      hour: "12:00",
+      empty: true,
+    },
+    {
+      hour: "13:30",
+      empty: true,
+    },
+    {
+      hour: "14:00",
+      empty: true,
+    },
+    {
+      hour: "14:30",
+      empty: true,
+    },
+    {
+      hour: "15:00",
+      empty: true,
+    },
+    {
+      hour: "15:30",
+      empty: true,
+    },
+  ];
 
   dateFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
@@ -35,7 +98,11 @@ export class AppointmentComponent implements OnInit {
   constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
-    this.date_list = this.appointmentService.getDateList(Date);
+  }
+
+  select_date(type: string, event: MatDatepickerInputEvent<Date>) {
+    console.log(event.value);
+    this.reserved_date_list = this.appointmentService.getDateList();
   }
 
 }
