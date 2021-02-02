@@ -5,7 +5,7 @@
 
     <mat-form-field id="datePickerForm" class="form-field" appearance="fill">
       <mat-label>Date du rendez-vous</mat-label>
-      <input matInput [matDatepicker]="picker" (dateChange)="select_date('change', $event)">
+      <input matInput [matDatepicker]="picker" [matDatepickerFilter]="dateFilter" (dateChange)="select_date('change', $event)">
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
@@ -42,7 +42,10 @@
   <div id="pickReservation">
     <mat-list>
       <mat-list-item *ngFor="let date of date_list">
-        <div>{{date.date}}</div>
+        <div class="mat-list-item-bloc">
+          <div class="date-list-item">Heure : {{date.hour}}</div>
+          <div class="date-list-item">Disponibilitée : {{date.empty}}</div>
+        </div>
       </mat-list-item>
     </mat-list>
   </div>

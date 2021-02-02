@@ -26,6 +26,68 @@ export class AppointmentComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
 
   reserved_date_list = [];
+  date_list = [
+    {
+    hour: "8:30",
+    empty: true,
+  },
+    {
+      hour: "9:00",
+      empty: true,
+    },
+    {
+      hour: "9:30",
+      empty: true,
+    },
+    {
+      hour: "9:00",
+      empty: true,
+    },
+    {
+      hour: "9:30",
+      empty: true,
+    },
+    {
+      hour: "10:00",
+      empty: true,
+    },
+    {
+      hour: "10:30",
+      empty: true,
+    },
+    {
+      hour: "11:00",
+      empty: true,
+    },
+    {
+      hour: "11:30",
+      empty: true,
+    },
+    {
+      hour: "12:00",
+      empty: true,
+    },
+    {
+      hour: "13:30",
+      empty: true,
+    },
+    {
+      hour: "14:00",
+      empty: true,
+    },
+    {
+      hour: "14:30",
+      empty: true,
+    },
+    {
+      hour: "15:00",
+      empty: true,
+    },
+    {
+      hour: "15:30",
+      empty: true,
+    },
+  ];
 
   dateFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
