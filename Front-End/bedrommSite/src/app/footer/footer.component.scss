@@ -8,3 +8,16 @@
   height: $footer-header-height;
   background-color: $color-primary;
 }
+
+
+a {
+  color : #191919;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  background-color: transparent;
+  text-decoration: underline;
+}
+

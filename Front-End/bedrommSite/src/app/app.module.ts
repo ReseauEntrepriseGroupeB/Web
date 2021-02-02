@@ -16,12 +16,14 @@ import {MatInputModule} from "@angular/material/input";
 import {ReactiveFormsModule} from "@angular/forms";
 import {MatListModule} from "@angular/material/list";
 import {MatIconModule} from "@angular/material/icon";
+import { RgpdComponent } from './rgpd/rgpd.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
   {path: '404', redirectTo: '/accueil', pathMatch: 'full'},
   {path: 'accueil', component: AccueilComponent},
   {path: 'appointment', component: AppointmentComponent},
+  {path: 'rgpd', component: RgpdComponent},
 ];
 
 @NgModule({
@@ -31,6 +33,7 @@ const routes: Routes = [
     FooterComponent,
     AccueilComponent,
     AppointmentComponent,
+    RgpdComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,4 +54,5 @@ const routes: Routes = [
   ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
