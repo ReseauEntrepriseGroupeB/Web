@@ -1,27 +1,25 @@
-const Sequelize = require("sequelize");
-
+const express = require("express");
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const dotenv = require("dotenv");
 
-const express = require("express");
+const dbConnection = require("../backend/config/database");
+
 const app = express();
 dotenv.config();
+
+// Defining the Middlewares
+app.use(cors());
+
+// BodyParser Midlleware
+app.use(bodyParser.json());
+
 
 app.get('/', function (req, res) {
     res.send("hello world")
 });
 
-let sequelize = new Sequelize("bedroom", "postgres", "postgre",{
-    host: "localhost",
-    dialect: "postgres",
-
-    pool:{
-        max: 5,
-        min: 0,
-        idle: 10000
-    },
-});
-
-sequelize.authenticate()
+dbConnection.authenticate()
     .then(() => {
     if (process.env.NODE_ENV === 'dev') {
             console.log(`Database connected successfully to ${process.env.POSTGRES_DB} database`)
@@ -29,5 +27,14 @@ sequelize.authenticate()
     })
     .catch(error => console.error("Unable to connect to database" , error));
 
-app.listen(3000);
+
+// Bring in the user routers
+const clients = require('./routes/clients');
+
+app.use('/api/v1', clients);
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server started on port ${process.env.PORT}`);
+});
+
 
