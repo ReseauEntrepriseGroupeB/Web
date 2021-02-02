@@ -14,10 +14,17 @@
   font-size: 3em;
 }
 
+#button-bloc {
+  display: flex;
+  flex-direction: row;
+}
+
 .button{
   background-color: $color-secondary;
   padding: 1em;
   border-radius: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 img {
