@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
 import {ErrorStateMatcher} from "@angular/material/core";
 import {AppointmentService} from "../services/appointmentService/appointment.service";
+import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -24,7 +25,7 @@ export class AppointmentComponent implements OnInit {
   ]);
   matcher = new MyErrorStateMatcher();
 
-  date_list = [];
+  reserved_date_list = [];
 
   dateFilter = (d: Date | null): boolean => {
     const day = (d || new Date()).getDay();
@@ -35,7 +36,11 @@ export class AppointmentComponent implements OnInit {
   constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
-    this.date_list = this.appointmentService.getDateList(Date);
+  }
+
+  select_date(type: string, event: MatDatepickerInputEvent<Date>) {
+    console.log(event.value);
+    this.reserved_date_list = this.appointmentService.getDateList();
   }
 
 }

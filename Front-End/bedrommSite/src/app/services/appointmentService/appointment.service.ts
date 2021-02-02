@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
 
-  date_list = [
+  current_date_selected = null;
+  reserved_date_list = [
     {date: "2015-10-12 12:15"},
     {date: "2015-10-12 13:55"},
     {date: "2015-10-12 16:35"},
@@ -16,7 +18,12 @@ export class AppointmentService {
 
   constructor() { }
 
-  getDateList(Date){
-    return this.date_list;
+  getDateList(){
+    if (this.current_date_selected == null) {
+      return null
+    }
+    else {
+      return this.reserved_date_list;
+    }
   }
 }
