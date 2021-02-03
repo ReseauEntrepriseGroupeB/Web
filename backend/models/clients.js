@@ -1,6 +1,7 @@
 const Sequelize = require("sequelize");
 const dbConnection = require("../config/database");
 
+
 const Client = dbConnection.define('client', {
     id: {
         type: Sequelize.UUID,

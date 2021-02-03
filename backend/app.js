@@ -4,6 +4,7 @@ const cors = require('cors');
 const dotenv = require("dotenv");
 const path = require('path');
 
+
 const dbConnection = require("./config/database");
 
 const app = express();
@@ -41,6 +42,7 @@ app.get('*', (req, res) => {
     return res.sendFile(path
       .join(__dirname + '/public', 'dist', 'index.html'))
   })
+
 
 app.listen(process.env.PORT, () => {
     console.log(`Server started on port ${process.env.PORT}`);

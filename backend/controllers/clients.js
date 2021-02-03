@@ -1,5 +1,9 @@
 const Client = require("../models/clients");
 const Op = require("sequelize");
+const cron = require('node-cron');
+const Sequelize = require("sequelize");
+var moment = require('moment');
+
 
 const clients = async (req, res) => {
     const users = await Client.findAll(
@@ -55,6 +59,23 @@ const getDate = async (req, res) => {
         .status(200)
         .json({rdv: Array.from(set)});
 };
+
+function dayDiff(d1, d2) { return new Number((d2.getTime() - d1.getTime()) / 31536000000).toFixed(0); }
+
+cron.schedule('* * 24 * * *', async function() {
+    const time = await Client.findAll()
+    time.forEach(x => {
+        const day1 = new Date(x.dataValues.createdAt);
+        const day2 = new Date();
+        x.diff = dayDiff(day1, day2);
+    });
+    const timefiltered = time.filter(x => x.diff > 3).map(x => x.id)
+
+    Client.destroy({ where: { id: [...timefiltered] }})
+
+    });
+
+
 
 module.exports = {
     clients, createClient, getDate
