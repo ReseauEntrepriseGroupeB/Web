@@ -2,24 +2,30 @@
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
+@font-face {
+  font-family: Montserrat;
+  src: url("/assets/montserrat/Montserrat-Medium.otf") format("truetype");
+}
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
 html, body { height: 100%; }
 body {
   margin: 0;
-  font-family: Roboto,
-  "Helvetica Neue", sans-serif;
-  background-color: rgb(48,48,48);
+  background-color: #c0c8d9;
 }
 
 /**
 Color
  */
-$color-primary: rgb(231, 231, 231);
-$color-secondary: rgb(131, 131, 131);
-$color-gradient: linear-gradient(180deg, rgba(118,197,164,1) 20%, rgba(48,57,197,1) 80%);
-$color-accent: rgb(84, 175, 198);
+$color-primary: #2A4D69;
+$color-secondary: #c0c8d9;
+$color-accent: #2a3c69;
+$color-highlight: #4bc5d0;
 
-$color-font-primary: #292929;
-$color-font-secondary: lightgray;
+$color-font-primary: #c0c8d9;
+$color-font-secondary: #2A4D69;
 
 /**
 Font

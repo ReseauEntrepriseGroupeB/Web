@@ -40,6 +40,7 @@ export class AppointmentComponent implements OnInit {
   email: any;
 
   date_selected = false;
+  date_event = null;
   reserved_date_list = [];
   requested_date_parsed = null;
   reservation = null
@@ -109,6 +110,7 @@ export class AppointmentComponent implements OnInit {
    * @param event
    */
   select_date(type: string, event: MatDatepickerInputEvent<Date>) {
+    this.date_event = event;
     this.date_list = [
       {
         hour: 8,
@@ -222,8 +224,11 @@ export class AppointmentComponent implements OnInit {
       console.log(this.reservation);
       this.appointmentService
         .sendReservation(this.reservation)
-        .subscribe((response: any) => console.log(response),
-          error => console.log(error));
+        .subscribe(
+          (response: any) =>
+          this.select_date('change', this.date_event),
+          error =>
+            console.log(error));
     }
   }
 }

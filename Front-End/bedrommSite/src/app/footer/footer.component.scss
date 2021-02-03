@@ -5,7 +5,7 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: $footer-header-height;
+  height: $footer-header-height / 1.5;
   background-color: $color-primary;
 }
 
@@ -14,13 +14,9 @@
   width: 10em;
   margin: 0.5em 0.5em 0.5em auto;
   background-color: $color-secondary;
-  color: $color-font-primary;
-  padding: 0.5em;
-  border-radius: 0.5em;
-}
-
-#confid-button:hover {
-  background-color: $color-font-primary;
   color: $color-font-secondary;
+  padding: 0.5em;
+  text-align: center;
+  border-radius: 0.5em;
 }
 

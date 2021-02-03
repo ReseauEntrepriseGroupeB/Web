@@ -2,7 +2,7 @@
   <div id="title"> Prendre un rendez-vous </div>
   <div id="infoContainer">
 
-    <div id="infoForm">
+    <div id="infoForm" class="mat-elevation-z5">
 
       <mat-form-field id="datePickerForm" class="form-field" appearance="fill">
         <mat-label>Date du rendez-vous</mat-label>
@@ -51,10 +51,10 @@
 
     <div id="sizer"></div>
 
-    <div id="pickReservation">
+    <div id="pickReservation" class="mat-elevation-z5">
       <mat-list *ngIf="date_selected">
         <mat-list-item *ngFor="let date of date_list">
-          <div class="mat-list-item-bloc" (click)="bookHour(date)">
+          <div class="mat-list-item-bloc mat-elevation-z5" (click)="bookHour(date)">
             <div class="date-list-item">{{date.hour}} heure</div>
             <div class="date-list-item" class="date_empty" *ngIf="date.empty">Disponibilite <mat-icon>done_outline</mat-icon></div>
             <div class="date-list-item" class="date_full" *ngIf="!date.empty">Réservé <mat-icon>highlight_off</mat-icon></div>
@@ -69,7 +69,7 @@
 
   </div>
 
-  <div id="confirmReservation">
+  <div id="confirmReservation" class="mat-elevation-z5">
     <div *ngIf="requested_date_parsed" id="confirmReservation-bloc">
       <div id="confirmation-info">
         <div class="reservation-line">Nom Prénom : {{this.reservation.name}} {{this.reservation.surname}}</div>
@@ -82,7 +82,7 @@
     <div *ngIf="!requested_date_parsed">
       <div id="confirmReservation-placeholder">
         <p>Veuillez remplir tout les champs </p>
-        <p>ainsi que choisir une date afin de pouvoir effectuer une réservation </p>
+        <p>Ainsi que choisir une date afin de pouvoir effectuer une réservation </p>
       </div>
     </div>
   </div>

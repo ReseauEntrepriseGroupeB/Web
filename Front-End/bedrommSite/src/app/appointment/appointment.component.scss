@@ -1,8 +1,8 @@
 @import "src/styles";
 
 #main-container {
-  padding: $footer-header-height;
   height: 90%;
+  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -12,6 +12,7 @@
   color: $color-font-secondary;
   font-size: 3em;
   justify-content: center;
+  margin-top: 0.2em;
   margin-bottom: 1em;
 }
 
@@ -28,8 +29,8 @@
   justify-content: space-between;
   flex-direction: column;
   min-height: 500px;
-  padding: 1em;
-  border: solid 2px $color-secondary;
+  border: solid 2px $color-primary;
+  background-color: $color-primary;
   border-radius: 0.5em;
 }
 
@@ -38,17 +39,20 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  min-height: 200px;
+  min-height: 100px;
   padding: 1em;
   margin-top: 2em;
-  border: solid 2px $color-secondary;
+  border: solid 2px $color-primary;
+  background-color: $color-primary;
   border-radius: 0.5em;
 }
 
 #pickReservation {
   width: 100%;
-  border: solid 2px $color-secondary;
+  border: solid 2px $color-primary;
+  background-color: $color-primary;
   border-radius: 0.5em;
+  padding: 0.2em;
 }
 
 #sizer {
@@ -70,8 +74,8 @@ mat-list {
 }
 
 #placeHolder-reservation {
-  color: $color-font-secondary;
-  font-size: 2em;
+  color: $color-font-primary;
+  font-size: 1.5em;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -80,8 +84,8 @@ mat-list {
 }
 
 #confirmReservation-placeholder{
-  color: $color-font-secondary;
-  font-size: 2em;
+  color: $color-font-primary;
+  font-size: 1.5em;
   width: 100%;
   height: 100%;
   text-align: center;
@@ -95,7 +99,7 @@ mat-list {
 }
 
 #confirmation-info{
-  color: $color-font-secondary;
+  color: $color-font-primary;
   font-size: 1em;
 }
 

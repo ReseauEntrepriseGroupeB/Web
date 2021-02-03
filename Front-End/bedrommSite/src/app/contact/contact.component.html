@@ -1,21 +1,21 @@
 <div class="container">
-  <div id="title"> Contactez-nous içi ! </div>
+  <div id="title"> Contactez-nous ici ! </div>
   <div class="row">
     <div class="col-md-6 offset-md-3">
       <form [formGroup]="FormData" (ngSubmit)="onSubmit(FormData.value)"><div class="form-group">
-        <label class="gris">Email</label>
+        <label class="label">Email</label>
         <input type="email" class="form-control" name="Email" aria-describedby="emailHelp" placeholder="JeanDecoster@gmail.com" formControlName="Email">
       </div>
         <div class="form-group">
-          <label class="gris">Nom & prénom</label>
+          <label class="label">Nom & prénom</label>
           <input type="text" class="form-control" name="Fullname" placeholder="Decoster Jean" formControlName="Fullname">
         </div>
         <div class="form-group">
-          <label class="gris">Commentaire</label>
+          <label class="label">Commentaire</label>
           <textarea class="form-control" formControlName="Comment" name="Comment">
 </textarea>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!FormData.valid">Submit</button>
+        <button type="submit" id="submitButton" class="btn btn-primary" [disabled]="!FormData.valid">Submit</button>
       </form>
     </div>
   </div>
