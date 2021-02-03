@@ -1,10 +1,13 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppointmentService {
+
+  headers = new HttpHeaders().set('Content-Type', 'application/json; charset=utf-8');
+
   putReservationURL : 'localhost/register';
   getDateURL: 'localhost/:';
 
@@ -30,7 +33,8 @@ export class AppointmentService {
       return null
     }
     else {
-      this.reserved_date_list = this.http.get('api/v1/rdv/' + this.current_date_selected);
+      this.reserved_date_list = this.http.get('/api/v1/rdv/' + this.current_date_selected, {headers: this.headers});
+      console.log(this.reserved_date_list);
       return this.reserved_date_list;
     }
   }

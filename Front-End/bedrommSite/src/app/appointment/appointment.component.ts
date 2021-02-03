@@ -115,16 +115,22 @@ export class AppointmentComponent implements OnInit {
     let month = (this.selected_date.getMonth() + 1).toString();
     let day = this.selected_date.getDate().toString();
     let daterequested =  year +'-'+ month +'-' + day
-    this.reserved_date_list = this.appointmentService.getDateList(daterequested);
-    if (this.reserved_date_list != null){
-      for (let reserved of this.reserved_date_list){
-        for (let date of this.date_list){
-          if (date == reserved) {
-
+    this.appointmentService.getDateList(daterequested).subscribe(data => {
+      this.reserved_date_list = data;
+      if (this.reserved_date_list != null){
+        console.log(this.reserved_date_list);
+        for (let reserved of this.reserved_date_list){
+          for (let date of this.date_list){
+            if (date.hour == reserved) {
+              date.empty = false;
+            }
+            else {date.empty = true}
           }
         }
       }
-    }
+    }, error => {console.log(error)}
+      );
+
   }
 
   /**
