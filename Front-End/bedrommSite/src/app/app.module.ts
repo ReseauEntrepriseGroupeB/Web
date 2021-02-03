@@ -19,6 +19,7 @@ import {MatIconModule} from "@angular/material/icon";
 import { RgpdComponent } from './rgpd/rgpd.component';
 import { ContactComponent } from './contact/contact.component';
 import {HttpClientModule} from "@angular/common/http";
+import {MatButtonModule} from "@angular/material/button";
 
 const routes: Routes = [
   {path: '', redirectTo: '/accueil', pathMatch: 'full'},
@@ -39,23 +40,24 @@ const routes: Routes = [
     RgpdComponent,
     ContactComponent,
   ],
-  imports: [
-    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    RouterModule.forRoot(routes),
-    MatDatepickerModule,
-    MatNativeDateModule,
-    MatInputModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    MatListModule,
-    MatIconModule,
-    FormsModule,
-    HttpClientModule,
-  ],
+    imports: [
+        ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        NgbModule,
+        RouterModule.forRoot(routes),
+        MatDatepickerModule,
+        MatNativeDateModule,
+        MatInputModule,
+        MatFormFieldModule,
+        ReactiveFormsModule,
+        MatListModule,
+        MatIconModule,
+        FormsModule,
+        HttpClientModule,
+        MatButtonModule,
+    ],
   providers: [
     MatDatepickerModule,
   ],

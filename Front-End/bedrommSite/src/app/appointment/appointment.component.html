@@ -77,7 +77,7 @@
         <div class="reservation-line">Email : {{this.reservation.email}}</div>
         <div class="reservation-line">Date et heure de réservation : {{this.reservation.date}}</div>
       </div>
-      <div class="confirmation-button mat-elevation-z1" (click)="sendReservation()"> Confirmer </div>
+      <button class="confirmation-button mat-elevation-z1" mat-button (click)="sendReservation()"> Confirmer </button>
     </div>
     <div *ngIf="!requested_date_parsed">
       <div id="confirmReservation-placeholder">
