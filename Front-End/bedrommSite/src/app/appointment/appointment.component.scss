@@ -65,7 +65,7 @@ mat-list {
 }
 
 .form-field {
-  color: $color-font-secondary;
+  color: $color-font-primary;
 }
 
 
@@ -108,7 +108,7 @@ mat-list {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: $color-accent;
+  background-color: $color-primary;
   padding: 0.5em;
   border-radius: 0.5em;
 }
@@ -119,14 +119,15 @@ mat-icon {
 
 .date-list-item {
   margin-left: 1em;
+  color: $color-font-primary;
 }
 
 .date_empty {
-  color: green;
+  color: #BBE3BC;
 }
 
 .date_full {
-  color: red;
+  color: #DB6957;
 }
 
 .reservation-line {

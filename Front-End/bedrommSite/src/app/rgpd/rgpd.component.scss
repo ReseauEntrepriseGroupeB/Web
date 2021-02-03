@@ -1,9 +1,10 @@
 @import "src/styles";
 
 .content {
-  height: 100%;
-  flex-direction: row;
-  justify-content: center;
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -22,10 +23,14 @@
 
 .Text-bloc{
   justify-content: center;
+  background-color: $color-primary;
+  border-radius: $border-radius;
+  margin: 2em;
+  width: 75%;
 }
 
 .text{
-  color: $color-font-secondary;
+  color: $color-font-primary;
   padding: 2em 20% 2em 20%;
   font-size: 1.5em;
 }

@@ -12,12 +12,21 @@
 
 #title {
   font-size: 2em;
+  margin-left: 1em;
   color: $color-font-primary;
 }
 
 #button-bloc {
   display: flex;
   flex-direction: row;
+}
+
+#logo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  vertical-align: middle;
 }
 
 .button{
