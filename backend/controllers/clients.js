@@ -61,12 +61,11 @@ cron.schedule('59 23 * * *', async () => {
         x.diff = dayDiff(day1, day2);
     });
 
-    const timefiltered = clients.filter(x => x.diff > 3).map(x => x.id)
+    const timeFiltered = clients.filter(x => x.diff > 3).map(x => x.id);
 
-    Client.destroy({where: {id: [...timefiltered]}});
+    Client.destroy({where: {id: [...timeFiltered]}});
 
 });
-
 
 module.exports = {
     clients, createClient, getDate
