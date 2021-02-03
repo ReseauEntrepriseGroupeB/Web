@@ -10,14 +10,17 @@
 }
 
 
-a {
-  color : #191919;
-  background-color: transparent;
-  text-decoration: none;
+#confid-button {
+  width: 10em;
+  margin: 0.5em 0.5em 0.5em auto;
+  background-color: $color-secondary;
+  color: $color-font-primary;
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 
-a:hover {
-  background-color: transparent;
-  text-decoration: underline;
+#confid-button:hover {
+  background-color: $color-font-primary;
+  color: $color-font-secondary;
 }
 
