@@ -1,0 +1,11 @@
+version: "3.7"
+
+services:
+  database:
+    container_name: postgres-container
+    image: postgres
+    env_file:
+      - .env.DBBx
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
