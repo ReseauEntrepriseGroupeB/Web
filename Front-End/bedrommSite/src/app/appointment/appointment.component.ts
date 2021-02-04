@@ -229,6 +229,7 @@ export class AppointmentComponent implements OnInit {
           this.select_date('change', this.date_event),
           error =>
             console.log(error));
+      location.reload()
     }
   }
 }
