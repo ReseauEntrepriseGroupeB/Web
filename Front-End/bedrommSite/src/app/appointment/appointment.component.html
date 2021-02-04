@@ -15,7 +15,7 @@
         <mat-label>Nom</mat-label>
         <input matInput placeholder="" required [(ngModel)]="name" [formControl]="NameFormControl">
         <mat-error *ngIf="NameFormControl.hasError('required')">
-          Veuillez renseigner votre email
+          Veuillez renseigner votre Nom
         </mat-error>
       </mat-form-field>
 
@@ -23,16 +23,16 @@
         <mat-label>Prénom</mat-label>
         <input matInput placeholder="" required [(ngModel)]="surname" [formControl]="SurnameFormControl">
         <mat-error *ngIf="SurnameFormControl.hasError('required')">
-          Veuillez renseigner votre email
+          Veuillez renseigner votre Prénom
         </mat-error>
       </mat-form-field>
 
       <mat-form-field id="telForm" class="form-field" appearance="fill">
-        <mat-label>Telephone</mat-label>
+        <mat-label>Téléphone</mat-label>
         <span matPrefix>+32 &nbsp;</span>
         <input type="tel" matInput placeholder="412-34-56-78" [(ngModel)]="phone" required [formControl]="PhoneFormControl">
         <mat-error *ngIf="PhoneFormControl.hasError('required')">
-          Veuillez renseigner votre email
+          Veuillez renseigner votre Téléphone
         </mat-error>
       </mat-form-field>
 
@@ -72,10 +72,10 @@
   <div id="confirmReservation" class="mat-elevation-z5">
     <div *ngIf="requested_date_parsed" id="confirmReservation-bloc">
       <div id="confirmation-info">
-        <div class="reservation-line">Nom Prénom : {{this.reservation.name}} {{this.reservation.surname}}</div>
-        <div class="reservation-line">Téléphone : {{this.reservation.phone}}</div>
-        <div class="reservation-line">Email : {{this.reservation.email}}</div>
-        <div class="reservation-line">Date et heure de réservation : {{this.reservation.date}}</div>
+        <div class="reservation-line">Nom Prénom : {{name}} {{surname}}</div>
+        <div class="reservation-line">Téléphone : +32 {{phone}}</div>
+        <div class="reservation-line">Email : {{email}}</div>
+        <div class="reservation-line">Date et heure de réservation : {{date_reservation}}</div>
       </div>
       <button class="confirmation-button mat-elevation-z1" mat-button (click)="sendReservation()"> Confirmer </button>
     </div>
