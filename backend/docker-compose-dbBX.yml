@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   database:
-    container_name: postgres-container
+    container_name: postgres-container-Bruxelles
     image: postgres
     env_file:
       - .env.DBBx

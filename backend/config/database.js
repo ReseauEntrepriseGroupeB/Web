@@ -10,7 +10,7 @@ if (env.NODE_ENV === 'dev') {
         env.POSTGRES_USER,
         env.POSTGRES_PASSWORD, {
             dialect: 'postgres',
-            logging: false,
+            logging: true,
             port: 5432,
             pool: {
                 max: 5,
