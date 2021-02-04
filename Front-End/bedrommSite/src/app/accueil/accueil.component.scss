@@ -1,10 +1,17 @@
 @import "src/styles";
 
+#main-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 #bg-image {
   background-image: url('../../assets/main_health-and-wellness-hero-banner_desktop.jpg');
   filter: blur(8px);
   -webkit-filter: blur(8px);
   min-height: 380px;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -12,9 +19,7 @@
 
 .text-bloc {
   position: absolute;
-  top: 20%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: $footer-header-height + 2em;
   z-index: 2;
   background-color: rgba(0,0,0, 0.4);
   padding: 2em;
