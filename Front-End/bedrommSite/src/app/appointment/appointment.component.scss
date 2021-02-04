@@ -110,7 +110,15 @@ mat-list {
   flex-direction: row;
   justify-content: space-between;
   background-color: $color-primary;
-  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.mat-list-item-bloc:hover{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: $color-secondary;
   border-radius: 0.5em;
 }
 
@@ -119,16 +127,37 @@ mat-icon {
 }
 
 .date-list-item {
+  height: 100%;
+  width: 100%;
   margin-left: 1em;
   color: $color-font-primary;
+  padding: 0.5em;
+  border-radius: 0.5em;
+}
+
+.date-list-item:hover{
+  height: 100%;
+  width: 100%;
+  margin-left: 1em;
+  color: $color-font-secondary;
+  padding: 0.5em;
+  border-radius: 0.5em;
 }
 
 .date_empty {
   color: $color-green;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background-color: $color-primary;
+  padding-top: 0.5em;
 }
 
 .date_full {
   color: $color-red;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  background-color: $color-primary;
+  padding-top: 0.5em;
 }
 
 .reservation-line {
