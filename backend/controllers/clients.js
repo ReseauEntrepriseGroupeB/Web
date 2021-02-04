@@ -38,7 +38,7 @@ const getDate = async (req, res) => {
         .filter(x => (new Date(x.dateRDV).getFullYear()).toString() === reqBodyDate.split('-')[0]
             && (new Date(x.dateRDV).getMonth() + 1).toString() === reqBodyDate.split('-')[1]
             && (new Date(x.dateRDV).getDate()).toString() === reqBodyDate.split('-')[2])
-        .map(x => new Date(x.dateRDV).getHours() - 1);
+        .map(x => new Date(x.dateRDV).getHours());
 
     let set = new Set();
     filterredDates.forEach(x => set.add(x));
