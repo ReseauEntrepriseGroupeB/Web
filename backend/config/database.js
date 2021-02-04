@@ -9,7 +9,6 @@ if (env.NODE_ENV === 'dev') {
         env.POSTGRES_DB,
         env.POSTGRES_USER,
         env.POSTGRES_PASSWORD, {
-            //host: env.POSTGRES_HOST,
             dialect: 'postgres',
             logging: false,
             pool: {

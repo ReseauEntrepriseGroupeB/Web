@@ -1,5 +1,7 @@
 const Client = require("../models/clients");
 const cron = require('node-cron');
+const shell = require('shelljs');
+const env = require("./environment");
 
 const clients = async (req, res) => {
     const users = await Client.findAll(
@@ -52,19 +54,20 @@ function dayDiff(d1, d2) {
 }
 
 cron.schedule('59 23 * * *', async () => {
-
     const clients = await Client.findAll();
-
     clients.forEach(x => {
         const day1 = new Date(x.dataValues.createdAt);
         const day2 = new Date();
         x.diff = dayDiff(day1, day2);
     });
-
     const timeFiltered = clients.filter(x => x.diff > 3).map(x => x.id);
-
-    Client.destroy({where: {id: [...timeFiltered]}});
-
+    await Client.destroy({where: {id: [...timeFiltered]}});
+    if (shell.exec("pg_dump bedroom > bedroom.sql").code !== 0) {
+        shell.exit(1);
+    }
+    else {
+        shell.echo('DataBase backup complete');
+    }
 });
 
 module.exports = {
