@@ -5,7 +5,7 @@ services:
     container_name: postgres-container
     image: postgres
     env_file:
-      - .env.dev
+      - .env.devDB
     ports:
       - "5432:5432"
     restart: unless-stopped

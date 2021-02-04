@@ -11,24 +11,5 @@ module.exports = {
         dialectOptions: {
             bigNumberStrings: true
         }
-    },
-    test: {
-        dialect: 'postgres',
-        username: 'postgres',
-        password: 'postgres',
-        database: 'kots_test',
-        host: 'localhost',
-        port: 5432
-    },
-    production: {
-        url: env.DATABASE_URL,
-        dialect: 'postgres',
-        ssl: true,
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        }
     }
 }

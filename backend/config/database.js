@@ -4,24 +4,7 @@ const env = require("./environment");
 
 let dbConnection = ''
 
-if (env.NODE_ENV === 'test') {
-    dbConnection = new Sequelize(
-        'kots_test',
-        'postgres',
-        'postgres',
-        {
-            host: 'localhost',
-            dialect: 'postgres',
-            logging: false,
-            pool: {
-                max: 5,
-                min: 0,
-                acquire: 30000,
-                idle: 10000
-            }
-        }
-    )
-} else if (env.NODE_ENV === 'dev') {
+if (env.NODE_ENV === 'dev') {
     dbConnection = new Sequelize(
         env.POSTGRES_DB,
         env.POSTGRES_USER,
@@ -34,19 +17,13 @@ if (env.NODE_ENV === 'test') {
                 min: 0,
                 acquire: 30000,
                 idle: 10000
+            },
+            replication: {
+                read: [{host: env.POSTGRES_HOST_SLAVE, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}],
+                write: [{host: env.POSTGRES_HOST, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}]
             }
         }
     )
-} else if (env.NODE_ENV === 'production') {
-    dbConnection = new Sequelize(env.DATABASE_URL, {
-        ssl: true,
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false
-            }
-        }
-    })
 }
 
 module.exports = dbConnection;
