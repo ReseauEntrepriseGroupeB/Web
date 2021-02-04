@@ -1,7 +1,6 @@
 const Client = require("../models/clients");
 const cron = require('node-cron');
 const shell = require('shelljs');
-const env = require("./environment");
 
 const clients = async (req, res) => {
     const users = await Client.findAll(
