@@ -123,11 +123,11 @@ mat-icon {
 }
 
 .date_empty {
-  color: #BBE3BC;
+  color: $color-green;
 }
 
 .date_full {
-  color: #DB6957;
+  color: $color-red;
 }
 
 .reservation-line {
@@ -136,8 +136,8 @@ mat-icon {
 }
 
 .confirmation-button{
-  background-color: $color-primary;
-  color: $color-font-primary;
+  background-color: $color-secondary;
+  color: $color-font-secondary;
   padding: 1em;
   text-align: center;
   vertical-align: middle;

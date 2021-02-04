@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroupDirective, NgForm, Validators} from "@angular/forms";
-import {ErrorStateMatcher} from "@angular/material/core";
-import {AppointmentService} from "../services/appointmentService/appointment.service";
-import {MatDatepickerInputEvent} from "@angular/material/datepicker";
+import {FormControl, FormGroupDirective, NgForm, Validators} from '@angular/forms';
+import {ErrorStateMatcher} from '@angular/material/core';
+import {AppointmentService} from '../services/appointmentService/appointment.service';
+import {MatDatepickerInputEvent} from '@angular/material/datepicker';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -38,12 +38,12 @@ export class AppointmentComponent implements OnInit {
   surname: any;
   phone: any;
   email: any;
-
+  date_reservation: any;
   date_selected = false;
   date_event = null;
   reserved_date_list = [];
   requested_date_parsed = null;
-  reservation = null
+  reservation = null;
   selected_date: any;
   date_list = [
     {
@@ -159,17 +159,16 @@ export class AppointmentComponent implements OnInit {
     ];
     this.date_selected = true;
     this.selected_date = event.value;
-    console.log(this.selected_date)
-    let year = this.selected_date.getFullYear().toString();
-    let month = (this.selected_date.getMonth() + 1).toString();
-    let day = this.selected_date.getDate().toString();
-    let daterequested: string = year + '-' + month + '-' + day
+    const year = this.selected_date.getFullYear().toString();
+    const month = (this.selected_date.getMonth() + 1).toString();
+    const day = this.selected_date.getDate().toString();
+    const daterequested: string = year + '-' + month + '-' + day;
     this.appointmentService.getDateList(daterequested)
       .subscribe((data: any) => {
           this.reserved_date_list = data.body.rdv;
           if (this.reserved_date_list != null) {
-            for (let reserved of this.reserved_date_list) {
-              for (let date of this.date_list) {
+            for (const reserved of this.reserved_date_list) {
+              for (const date of this.date_list) {
                 if (date.hour == reserved) {
                   date.empty = false;
                 }
@@ -177,25 +176,26 @@ export class AppointmentComponent implements OnInit {
             }
           }
         }, error => {
-          console.log(error)
+          console.log(error);
         }
       );
 
   }
 
   /**
-   * réservation de l'heure souhiatée
+   * réservation de l'heure souhaitée
    * @param date
    */
   bookHour(date) {
-
     if (this.name == null || this.surname == null || this.email == null || this.phone == null) {
-      console.log("veuillez remplir tout les champs");
+      console.log('veuillez remplir tout les champs');
     } else {
-      let hour = date.hour;
-      let year = this.selected_date.getFullYear();
-      let month = (this.selected_date.getMonth() + 1);
-      let day = this.selected_date.getDate();
+      const hour = date.hour;
+      const year = this.selected_date.getFullYear();
+      const month = (this.selected_date.getMonth() + 1);
+      const day = this.selected_date.getDate();
+
+      this.date_reservation = "Le " + day + "/" + month + "/" + year + " à " + hour + " heure";
 
       this.requested_date_parsed = new Date(this.selected_date);
       this.requested_date_parsed.setUTCHours(hour, 0, 0);
@@ -208,7 +208,7 @@ export class AppointmentComponent implements OnInit {
         telephone: '+32' + this.phone,
         email: this.email,
         dateRDV: new Date(this.requested_date_parsed).toISOString()
-      }
+      };
       console.log(this.reservation);
     }
   }
@@ -219,9 +219,9 @@ export class AppointmentComponent implements OnInit {
    */
   sendReservation() {
     if (this.name == null || this.surname == null || this.email == null || this.phone == null) {
-      console.log("veuillez remplir tout les champs");
+      console.log('veuillez remplir tout les champs');
     } else {
-      console.log(this.reservation);
+      // console.log(this.reservation);
       this.appointmentService
         .sendReservation(this.reservation)
         .subscribe(
@@ -229,6 +229,7 @@ export class AppointmentComponent implements OnInit {
           this.select_date('change', this.date_event),
           error =>
             console.log(error));
+      location.reload()
     }
   }
 }
