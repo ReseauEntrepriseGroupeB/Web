@@ -1,0 +1,51 @@
+@import "src/styles";
+
+.jumbotron {
+  background-image:
+    url('../../assets/main_health-and-wellness-hero-banner_desktop.jpg');
+   background-size: cover;
+   min-height: 380px;
+}
+
+.content {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.T{
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  color : white;
+  justify-content: center;
+  font-size: 3em;
+}
+
+.Title {
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+  color : white;
+  justify-content: center;
+  font-size: 2.5em;
+  padding: 1em;
+}
+
+.Subtitle{
+  color : $color-accent;
+  justify-content: center;
+  font-size: 2em;
+}
+
+.Text-bloc{
+  justify-content: center;
+  background-color: $color-primary;
+  border-radius: $border-radius;
+  margin: 2em;
+  width: 75%;
+}
+
+.text{
+  color: $color-font-primary;
+  padding: 2em 20% 2em 20%;
+  font-size: 1.5em;
+}
