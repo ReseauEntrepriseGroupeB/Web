@@ -3,7 +3,8 @@ version: "3.7"
 services:
   bedroom-server:
     container_name: bedroom-server-Bruxelles
-    image: patrick450/bedroom
+    build: .
+    dockerfile: Dockerfile
     restart: unless-stopped
     ports:
       - "80:3000"

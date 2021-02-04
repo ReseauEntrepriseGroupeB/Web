@@ -29,4 +29,4 @@ COPY --from=build /home/bedroom .
 # Expose port and cmd
 EXPOSE 3000
 
-CMD [ "npm", "run", "docker:setupNoDrop"]
+CMD [ "npm", "run", "db:setupNoDrop"]
