@@ -15,7 +15,7 @@
     "db:drop": "npx sequelize-cli db:drop",
     "db:setup": "npm run db:drop && npm run db:create && npm run db:migrate && npm run db:seed",
     "docker:setup": "npm run db:setupCustom && npm run start",
-    "db:setupNoDrop": "npm run db:create && npm run db:migrate && npm run db:seed"
+    "docker:setupNoDrop": "npm run db:create && npm run db:migrate && npm run db:seed"
   },
   "repository": {
     "type": "git",
