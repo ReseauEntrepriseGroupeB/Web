@@ -9,7 +9,7 @@ if (env.NODE_ENV === 'dev') {
         env.POSTGRES_DB,
         env.POSTGRES_USER,
         env.POSTGRES_PASSWORD, {
-            host: env.POSTGRES_HOST,
+            //host: env.POSTGRES_HOST,
             dialect: 'postgres',
             logging: false,
             port: 5432,
@@ -20,7 +20,10 @@ if (env.NODE_ENV === 'dev') {
                 idle: 10000
             },
             replication: {
-                read: [{host: env.POSTGRES_HOST_SLAVE, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}],
+                read: [
+                    {host: env.POSTGRES_HOST, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD},
+                    {host: env.POSTGRES_HOST_SLAVE, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}
+                    ],
                 write: [{host: env.POSTGRES_HOST, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}]
             }
         }
