@@ -3,8 +3,9 @@ const cron = require('node-cron');
 const shell = require('shelljs');
 
 const clients = async (req, res) => {
-    const users = await Client.findAll(
-        {attributes: ['id', 'email', 'nom', 'dateRDV']});
+    const users = await Client.findAll({
+        useMaster: true,
+        attributes: ['id', 'email', 'nom', 'dateRDV']});
 
     if (users.length === 0)
         return res
@@ -30,10 +31,10 @@ const getDate = async (req, res) => {
 
     const reqBodyDate = req.params.date;
 
-    const result = await Client.findAll(
-        {
-            attributes: ['nom', 'dateRDV', 'email']
-        });
+    const result = await Client.findAll({
+        useMaster: true,
+        attributes: ['nom', 'dateRDV', 'email']
+    });
 
     const filterredDates = result
         .filter(x => (new Date(x.dateRDV).getFullYear()).toString() === reqBodyDate.split('-')[0]
@@ -53,7 +54,7 @@ function dayDiff(d1, d2) {
 }
 
 cron.schedule('59 23 * * *', async () => {
-    const clients = await Client.findAll();
+    const clients = await Client.findAll({useMaster: true});
     clients.forEach(x => {
         const day1 = new Date(x.dataValues.createdAt);
         const day2 = new Date();
