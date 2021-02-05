@@ -25,7 +25,7 @@ if (env.NODE_ENV === 'dev') {
                     {host: env.POSTGRES_HOST_ANV, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD},
                     {host: env.POSTGRES_HOST_BX, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}
                     ],
-                write: [{host: env.POSTGRES_HOST_BX, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}]
+                write: {host: env.POSTGRES_HOST_BX, user: env.POSTGRES_USER, pass: env.POSTGRES_PASSWORD}
             }
         }
     )
